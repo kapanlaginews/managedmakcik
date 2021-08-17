@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="https://1.bp.blogspot.com/-q1hXV76r2pE/YJKe2l9-01I/AAAAAAAAAE8/dqKbm4_8s64-17G5vlywo8hbvkJBLV--QCNcBGAsYHQ/s32/idea.ico">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vyantagc/vyantagc/popme-style.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+	<script  src="https://pasukan.my.id/ad/head.js" type="text/javascript" ></script>
+	<title>
+        ▷ Distance Vector Dan Link State
+    </title>
+    <style>:root{--border-radius:5px;--box-shadow:2px 2px 10px;--color:#dc3545;--color-accent:#dc354515;--color-bg:#fff;--color-bg-secondary:#c82333;--color-secondary:#c82333;--color-secondary-accent:#920de90b;--color-shadow:#f4f4f4;--color-text:#000;--color-text-secondary:#999;--font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;--hover-brightness:1.2;--justify-important:center;--justify-normal:left;--line-height:1.5;--width-card:285px;--width-card-medium:460px;--width-card-wide:800px;--width-content:1080px}article aside{background:var(--color-secondary-accent);border-left:4px solid var(--color-secondary);padding:.01rem .8rem}body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-family);line-height:var(--line-height);margin:0;overflow-x:hidden;padding:1rem 0}footer,header,main{margin:0 auto;max-width:var(--width-content);padding:0rem 1rem}hr{background-color:var(--color-bg-secondary);border:none;height:1px;margin:4rem 0}section{display:flex;flex-wrap:wrap;justify-content:var(--justify-important)}section aside{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);margin:1rem;padding:1.25rem;width:var(--width-card)}section aside:hover{box-shadow:var(--box-shadow) var(--color-bg-secondary)}section aside img{max-width:100%}[hidden]{display:none}article header,div header,main header{padding-top:0}header{text-align:var(--justify-important)}header a b,header a em,header a i,header a strong{margin-left:.5rem;margin-right:.5rem}header nav img{margin:1rem 0}section header{padding-top:0;width:100%}nav{align-items:center;display:flex;font-weight:700;justify-content:space-between;margin-bottom:7rem}nav ul{list-style:none;padding:0}nav ul li{display:inline-block;margin:0 .5rem;position:relative;text-align:left}nav ul li:hover ul{display:block}nav ul li ul{background:var(--color-bg);border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);display:none;height:auto;left:-2px;padding:.5rem 1rem;position:absolute;top:1.7rem;white-space:nowrap;width:auto}nav ul li ul li,nav ul li ul li a{display:block}code,samp{background-color:var(--color-accent);border-radius:var(--border-radius);color:var(--color-text);display:inline-block;margin:0 .1rem;padding:0 .5rem}details{margin:1.3rem 0}details summary{font-weight:700;cursor:pointer}h1,h2,h3,h4,h5,h6{line-height:var(--line-height)}mark{padding:.1rem}ol li,ul li{padding:.2rem 0}p{margin:.75rem 0;padding:0}pre{margin:1rem 0;max-width:var(--width-card-wide);padding:1rem 0}pre code,pre samp{display:block;max-width:var(--width-card-wide);padding:.5rem 2rem;white-space:pre-wrap}small{color:var(--color-text-secondary)}sup{background-color:var(--color-secondary);border-radius:var(--border-radius);color:var(--color-bg);font-size:xx-small;font-weight:700;margin:.2rem;padding:.2rem .3rem;position:relative;top:-2px}a{color:var(--color-secondary);display:inline-block;text-decoration:none}a:hover{filter:brightness(var(--hover-brightness));text-decoration:underline}a b,a em,a i,a strong,button{border-radius:var(--border-radius);display:inline-block;font-size:medium;font-weight:700;line-height:var(--line-height);margin:.5rem 0;padding:1rem 2rem}button{font-family:var(--font-family)}button:hover{cursor:pointer;filter:brightness(var(--hover-brightness))}a b,a strong,button{background-color:var(--color);border:2px solid var(--color);color:var(--color-bg)}a em,a i{border:2px solid var(--color);border-radius:var(--border-radius);color:var(--color);display:inline-block;padding:1rem}figure{margin:0;padding:0}figure img{max-width:100%}figure figcaption{color:var(--color-text-secondary)}button:disabled,input:disabled{background:var(--color-bg-secondary);border-color:var(--color-bg-secondary);color:var(--color-text-secondary);cursor:not-allowed}button[disabled]:hover{filter:none}form{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);box-shadow:var(--box-shadow) var(--color-shadow);display:block;max-width:var(--width-card-wide);min-width:var(--width-card);padding:1.5rem;text-align:var(--justify-normal)}form header{margin:1.5rem 0;padding:1.5rem 0}input,label,select,textarea{display:block;font-size:inherit;max-width:var(--width-card-wide)}input[type=checkbox],input[type=radio]{display:inline-block}input[type=checkbox]+label,input[type=radio]+label{display:inline-block;font-weight:400;position:relative;top:1px}input,select,textarea{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);margin-bottom:1rem;padding:.4rem .8rem}input[readonly],textarea[readonly]{background-color:var(--color-bg-secondary)}label{font-weight:700;margin-bottom:.2rem}table{border:1px solid var(--color-bg-secondary);border-radius:var(--border-radius);border-spacing:0;display:inline-block;max-width:100%;overflow-x:auto;padding:0;white-space:nowrap}table td,table th,table tr{padding:.4rem .8rem;text-align:var(--justify-important)}table thead{background-color:var(--color);border-collapse:collapse;border-radius:var(--border-radius);color:var(--color-bg);margin:0;padding:0}table thead th:first-child{border-top-left-radius:var(--border-radius)}table thead th:last-child{border-top-right-radius:var(--border-radius)}table thead th:first-child,table tr td:first-child{text-align:var(--justify-normal)}table tr:nth-child(even){background-color:var(--color-accent)}blockquote{display:block;font-size:x-large;line-height:var(--line-height);margin:1rem auto;max-width:var(--width-card-medium);padding:1.5rem 1rem;text-align:var(--justify-important)}blockquote footer{color:var(--color-text-secondary);display:block;font-size:small;line-height:var(--line-height);padding:1.5rem 0} article{padding: 1.25rem;}.v-cover{height: 480px; object-fit: cover;width: 100vw;cursor: pointer;}.v-image{height: 250px; object-fit: cover;width: 100vw;cursor: pointer;}.dwn-cover{max-height: 460px; object-fit: cover;}.w-100{width: 100vw}.search-box{color:#333;background-color:#ffffff;width:85%;height:50px;padding:0 20px;border:none;border-radius:20px;outline:0;border:1px solid #c82333}.search-box:active,.search-box:focus,.search-box:hover{border:1px solid #d9008e}.btn{display:inline-block;font-weight:400;color:#212529;text-align:center;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:transparent;border:1px solid transparent;border-top-color:transparent;border-right-color:transparent;border-bottom-color:transparent;border-left-color:transparent;padding:.375rem .75rem;margin:0.5rem;font-size:1rem;line-height:1.5;border-radius:.25rem;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}.btn-danger{color:#fff;background-color:#dc3545;border-color:#dc3545}.btn-success{color:#fff;background-color:#28a745;border-color:#28a745}.btn-group-sm>.btn,.btn-sm{padding:.25rem .5rem;font-size:.875rem;line-height:1.5;border-radius:.2rem}
+</style>
+	<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "Article", 
+  "author": {
+    "@type": "Person",
+    "name": "Admin"
+  },
+  "headline": "Distance Vector Dan Link State",
+  "datePublished": "2021-08-12",
+  "image": "https://i.pinimg.com/originals/a9/5b/15/a95b15d89b8f0cec67d6f8ea69c67796.jpg",
+  "publisher": {
+    "@type": "Organization",
+    "name": "managedmakcik",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.placeholder.com/512.png?text=distance+vector+dan+link+state",
+      "width": 512,
+      "height": 512
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org/", 
+"@type": "CreativeWorkSeries", 
+"name": "managedmakcik", "aggregateRating": 
+{ "@type": "AggregateRating", 
+"ratingValue": "4.5", 
+"bestRating": "5", 
+"ratingCount": "558" } }
+</script>
+	<!-- Head tag Code -->
+</script><script type='text/javascript' src='//inquiryclank.com/9e/2b/a7/9e2ba7859749ffcbe541725d70fa9e2d.js'></script>
+
+<script  src="https://pasukan.my.id/go/back_indo.js" type="text/javascript" ></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GWR1H8SP53"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GWR1H8SP53');
+</script></head>
+<body>
+    <header>
+        <h1>
+            <a href="/">
+            ▷ Distance Vector Dan Link State
+            </a>
+        </h1>
+        <center>
+            <input class='search-box' id="search-box" placeholder='Cari disini...' type='text' name="q" required autocomplete="off" id="search-query">
+            <script  src="https://pasukan.my.id/ad/header.js" type="text/javascript" ></script>        </center>
+    </header>
+    <main>
+        <article>
+    <p><a href="/">distance vector dan link state</a> - Selamat datang di website beta. engkau mampu menelusuri tulisan yg sesuai dengan kesukaan kamu karena awak memiliki informasi yg lalu update beserta ditulis dengan kiat cakap yg kalem serta gampang dipahami seluruh sendiri. kali ini admin hendak membahas tulisan dekat-dekat distance vector dan link state.
+		
+		<center>
+<script  src="https://pasukan.my.id/ad/middle.js" type="text/javascript" ></script>
+</center>		
+    <p>Jarak didefinisikan dalam hal metrik seperti jumlah hop dan arah hanyalah arah hop berikutnya-router atau exit interface. RIPv1 RIPv2 IGRP dan EIGRP. Pengaturan routing ini dapat menentukan dan meningkatkan kinerja sebuah jaringan. 12272011 Perbedaan Link State dan Distance Vector Lihat Gambar. Link state protocols tidak perlu menggunakan berbagai macam mekanisme pencegahan loopLink state protocols mengkonsumsi lebih banyak CPU dan memori namun bila jaringan dirancang dengan.</p>
+            <figure>
+        <img class="v-cover ads-img" src="https://i.pinimg.com/originals/4e/af/69/4eaf693633b6dcffd0e5440018276106.jpg" alt="Pin Oleh Reba York Di Background Wallpaper Animasi" style="width: 100%; padding: 5px; background-color: grey;"  onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ_ai5gurl4-jYW0Dlac1hwZQjoc1l_3WAqykNaPTaEW-bhTcUp24C-HnUx8fvxIkZW1k';">
+        <figcaption>Pin Oleh Reba York Di Background Wallpaper Animasi from www.pinterest.com</figcaption>
+    </figure>
+        <p>
+							<a href="/baca/baca-komik-naruto-shippuden-terbaru.html">baca komik naruto shippuden terbaru</a> The router share its knowledge about the whole network to its neighbors and accordingly updates table based on its neighbors. Saat mempertimbangkan dengan protokol Distance Vector protokol link state menyediakan konvergensi yang cepat dan mengurangi kemungkinan membuat loop dalam jaringan. Link state proses routing yang membangun topologi databasenya sendiri Router mendapatkan informasi dari router yang berhubungan dgn dia secara langsung tentang keadaan jaringan router tersebut. 4212021 Perbedaan sebelumnya antara Distance vector dan link state routing adalah bahwa dalam distance vector routing router berbagi pengetahuan tentang keseluruhan sistem otonom sedangkan dalam link state routing router berbagi pengetahuan hanya dengan router tetangganya dalam sistem otonom. Sebuah router yang menggunakan distance vector routing protocol tidak memiliki pengetahuan tentang seluruh jalan ke network tujuan. 592021 Ketika mempertimbangkan dengan protokol Distance Vector Link state protocol menyediakan konvergensi cepat dan mengurangi kemungkinan menciptakan loop dalam jaringan.
+							</p>
+		
+		<center>
+<script  src="https://pasukan.my.id/ad/middlev2.js" type="text/javascript" ></script>
+</center>		
+    <h2>distance vector dan link state</h2>
+    <p>
+							<a href="/baca/lirik-lagu-batak-tangiang-ni-dainang-i.html">lirik lagu batak tangiang ni dainang i</a> Sebuah router yang menggunakan distance vector routing protocol tidak memiliki pengetahuan tentang seluruh jalan ke network tujuan. Link state protocols tidak perlu menggunakan berbagai macam mekanisme pencegahan loopLink state protocols mengkonsumsi lebih banyak CPU dan memori namun bila jaringan dirancang dengan. Ketika mempertimbangkan dengan protokol Distance Vector Link state protocol menyediakan konvergensi cepat dan mengurangi kemungkinan menciptakan loop dalam jaringan. 2Link State akan menggukanan jalur R1-R3-R4-R2 karena walaupun hop count nya jauh lebih banyak tapi bandwitdhnya lebih besar lebih cepat. 12272011 Perbedaan Link State dan Distance Vector Lihat Gambar. Link state proses routing yang membangun topologi databasenya sendiri Router mendapatkan informasi dari router yang berhubungan dgn dia secara langsung tentang keadaan jaringan router tersebut. distance vector dan link state.
+							</p>
+	<h3>Distance Vector proses routing berdasarkan arah dan jarak b.</h3>
+    <p>
+							<a href="/baca/gambar-orang-buang-sampah-pada-tempatnya.html">gambar orang buang sampah pada tempatnya</a> 122021 Berdasarkan metode penentuan jalur terbaik untuk mengirim paket Best Path IGP di bagi menjadi 2 jenis lagi yaitu Distance Vector dan Link State. Pengaturan routing ini dapat menentukan dan meningkatkan kinerja sebuah jaringan. Distance Vector proses routing berdasarkan arah dan jarak b. Konsep dasar dari link state routing adalah setiap router menerima peta map dari router tetangga. Dwi Nurmasari Pratiwi 1 Mahar Faiqurahman 2 Denar Regata Akbi 3 1 Universitas Muhammadiyah Malang. distance vector dan link state.
+							</p>
+	<h3>2 Universitas Muhammadiyah Malang.</h3>
+    <p>
+							<a href="/baca/contoh-proposal-pengajuan-proyek.html">contoh proposal pengajuan proyek</a> Analisis Distance Vector Protocol Routing dan Link State Routing Protocol Pada Jaringan Software Defined Network. Analisis Distance Vector Protocol Routing dan Link State Routing Protocol Pada Jaringan Software Defined Network. 4302018 Distance Vector Routing It is a dynamic routing algorithm in which each router computes distance between itself and each possible destination ie. Link state protocols tidak perlu menggunakan berbagai macam mekanisme pencegahan loopLink state protocols mengkonsumsi lebih banyak CPU dan memori namun bila jaringan dirancang dengan. Sebaliknya router hanya tahu. distance vector dan link state.
+							</p>
+		
+<p>Terima kasih sudah pernah berkunjung pada website beta. biar tulisan yg beta telaah diatas memberikan untung untuk pembaca beserta melimpah orang yang sudah berkunjung pada website ini. kami berharap dukungan mulai seluruh partai jatah pemekaran website ini agar lebih apik lalu.</p>
+
+</article>
+
+<section>
+
+    <aside>
+        <img class="v-image ads-img" alt="El Capricho De Gaudi El Capricho De Comillas Villa Quijano Barrio De Sobrellano S N Comillas Cant Gaudi Architecture Barcelona Architecture Antonio Gaudi" src="https://i.pinimg.com/originals/43/d8/1f/43d81ff4326e4ab6ebd00b6370ec54bb.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE2lTK3uL9nRBOScBGjsnCdPmiiQEHdI3OYg';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>Link state protocols tidak perlu menggunakan berbagai macam mekanisme pencegahan loopLink state protocols mengkonsumsi lebih banyak CPU dan memori namun bila jaringan dirancang dengan.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="Kindergarten Science Unit Lesson Young Plants Parent Plants Kindergarten Science Interactive Notebook Activities Science Units" src="https://i.pinimg.com/564x/13/a9/5c/13a95c5ec6fd661f81204b946a5b9b6f.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4lriSQgH_ZOKgG-r_I8m8ue8xPSbSFFv0Rw';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>Proses routing memiliki beberapa metode di antaranya adalah Distance Vector dan Link State.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="Pin On Hpv Std Testing At Home" src="https://i.pinimg.com/736x/89/78/16/897816aca06929570d6df638b4f91e91.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpSnjy9pgigZzYB5EoomZALYY8M92fZpi0nwZkVcJjeX_DU_Vi1RNNbIfhq3_85n-Q0qQ';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>Jika semua router yang menjalankan protokol link state jalur atau rute yang dipilih akan dari A B langsung melalui link serial ISDN meskipun link tersebut sekitar 10 kali lebih lambat dari rute langsung dari A.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="The 5 Best Alien Movies To Watch On Netflix When You Need A Break From Humanity Best Alien Movies Aliens Movie Alien Planet" src="https://i.pinimg.com/600x315/1a/83/8b/1a838b26ce401453f8e863f9b536c473.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStbYOhCgn4NJrSfnK-WL4io54aDCL7pw-HeQ';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>2 Universitas Muhammadiyah Malang.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="Microsoft Word Logo Desain Cv Desain Brosur Microsoft" src="https://i.pinimg.com/originals/46/aa/96/46aa967637e21e2a7f7bbef5196a663c.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOS-dWmYuAucJHnxBu0REIo03ALk-D19iHbIr2naaiAZ-gqgdVIhe38hhWkiFRGYj53_Y';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>1-1 di bawah ini.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="3" src="/search?q=camera+floor+plan+film&amp;tbm=isch" width="100%" onerror="this.onerror=null;this.src='/search?q=camera+floor+plan+film&amp;tbm=isch';" />
+        <small>Source: encrypted-tbn0.gstatic.com</small>
+                    <p>Link state proses routing yang membangun topologi databasenya sendiri Router mendapatkan informasi dari router yang berhubungan dgn dia secara langsung tentang keadaan jaringan router tersebut.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="Stamp Tattoo Google Search Tatuagens Pinterest Tattoo Tatoo And Piercings" src="https://i.pinimg.com/originals/65/45/1f/65451fcbd8e6164161c030cee64fe58f.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSBqJW9lnuZIn0yCIsXZ9qtXXcT_coOA42pg';" />
+        <small>Source: br.pinterest.com</small>
+                    <p>Distance vector adalah proses routing berdasarkan arah dan jarak.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="46 The Doctor Aftermarket Decal Sticker Vinyl Decal Stickers Doctor Stickers Stickers" src="https://i.pinimg.com/564x/21/21/12/212112f737a6c76416404b6b7daa2072.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-SKPX9iQKkfLzim9kY-A-CcSvL7L3dcMraA';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>Link state protocols tidak perlu menggunakan berbagai macam mekanisme pencegahan loopLink state protocols mengkonsumsi lebih banyak CPU dan memori namun bila jaringan dirancang dengan.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="Pin By Santosh Patil On Pencil Art Ganesh Images Black And White Art Drawing Kali Hindu" src="https://i.pinimg.com/736x/ee/87/63/ee8763a78335c84ba0c6c2dd178eca79.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZZYTCFyef-ft2zrOP_5RZ9GgGvNWi-7nsfs_gG7mrupncFlofhStu5fZuqIW4CxwBt-c';" />
+        <small>Source: in.pinterest.com</small>
+                    <p>3 Universitas Muhammadiyah Malang.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="Bake Hair In C4d Tracer Tutorial Map" src="https://i.pinimg.com/736x/c6/fc/f7/c6fcf78924082679b4793d480a66ccb0.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXU7vjVh8ZvZJXCPWe-5TSJVxea4t1g6ukew';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>Distance Vector merupakan metode routing protocol yang menggunakan jarak dari router ke tujuan Hop Count untuk memilih jalur terbaik pengiriman paket Best Path.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="1" src="/search?q=film+production+floor+plan+film&amp;tbm=isch" width="100%" onerror="this.onerror=null;this.src='/search?q=film+production+floor+plan+film&amp;tbm=isch';" />
+        <small>Source: encrypted-tbn0.gstatic.com</small>
+                    <p>592021 Ketika mempertimbangkan dengan protokol Distance Vector Link state protocol menyediakan konvergensi cepat dan mengurangi kemungkinan menciptakan loop dalam jaringan.</p>
+    </aside>
+
+    <aside>
+        <img class="v-image ads-img" alt="How To Import An Image Sequence Into Opentoonz Youtube Image Sequence Image Sequencing" src="https://i.pinimg.com/originals/54/38/a2/5438a2ca1a33e36456f240d5faebce97.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt865JN7RYJKkvnlVxY3p5Lfh356AQD2u1Oz-UOlf4icJtUfyi5yQDo7N79CaSzbLDFpY';" />
+        <small>Source: www.pinterest.com</small>
+                    <p>Kali ini saya akan membahas mengenai Distance Vector.</p>
+    </aside>
+</section>
+<section>
+    <article>
+        <p>
+                                
+                            <a href="/baca/download-fairy-tail-movie-2.html"><i>&larr; download fairy tail movie 2</i></a>
+                                                                    
+                                        <a href="/baca/download-file-excel-stok-barang.html"><i>download file excel stok barang &rarr;</i></a>
+                                        </p>
+    </article>
+</section>
+		<center>
+			<center>
+<script  src="https://pasukan.my.id/ad/footer.js" type="text/javascript" ></script>
+</center>		</center>
+    </main>
+    <footer style="padding-top: 1px;">
+        <center>
+                            <a href="/p/dmca.html">Dmca</a>
+                            <a href="/p/contact.html">Contact</a>
+                            <a href="/p/privacy-policy.html">Privacy Policy</a>
+                            <a href="/p/copyright.html">Copyright</a>
+                    </center>
+    </footer>
+    <!-- Footer CSS JS -->
+<script type='text/javascript' src='//inquiryclank.com/a4/6a/e6/a46ae66cc05a3cf9702a5a5b3a0acf74.js'></script>
+
+<script  src="https://pasukan.my.id/ad/popme_indo.js" type="text/javascript" ></script>
+            <script type="text/javascript">
+        var search = document.getElementById("search-box");
+        search.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                var target = 'site:'+location.host+' '+search.value;
+                var uri= 'https://www.google.com/search?q='+encodeURIComponent(target);
+                window.location= uri;
+            }
+        });
+    </script>
+	<script  src="https://cdn.jsdelivr.net/gh/vyantagc/vyantagc/popme-double-ads4.js" ></script>
+	<script  src="https://pasukan.my.id/ad/body.js" type="text/javascript" ></script>
+	
+</body>
+
+</html>
